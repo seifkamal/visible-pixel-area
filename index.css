@@ -36,6 +36,10 @@ main {
   opacity: 0.5;
 }
 
+.shape.blue[data-round] {
+  border-radius: 50%;
+}
+
 .shape.red {
   --color: red;
   --size: 500px;

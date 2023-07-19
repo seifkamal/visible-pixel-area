@@ -1,6 +1,7 @@
 export const events = new EventTarget();
 export const eventTypes = {
   shapeDrop: "app:shape:drop",
+  shapeRound: "app:shape:round",
 };
 
 /**
@@ -34,6 +35,11 @@ function initBlueShapes(blues) {
     blue.style.left = `${randomX}px`;
     blue.style.top = `${randomY}px`;
     blue.draggable = true;
+
+    blue.addEventListener("click", async () => {
+      blue.toggleAttribute("data-round");
+      events.dispatchEvent(new Event(eventTypes.shapeRound));
+    });
 
     blue.addEventListener("dragstart", (event) => {
       if (!event.dataTransfer) {
