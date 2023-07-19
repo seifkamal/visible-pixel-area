@@ -1,3 +1,5 @@
+import { createPixelCounter } from "./pixel.js";
+
 export const events = new EventTarget();
 export const eventTypes = {
   shapeDrop: "app:shape:drop",
@@ -8,13 +10,15 @@ export const eventTypes = {
  * @typedef {{
  *   blueShapes: HTMLElement[];
  *   dropContainer: HTMLElement;
+ *   redShapeOutput: HTMLElement;
  * }} AppProps
  *
  * @param {AppProps} props
  */
-export function init({ blueShapes, dropContainer }) {
+export function init({ blueShapes, dropContainer, redShapeOutput }) {
   initBlueShapes(blueShapes);
   initDropContainer(dropContainer);
+  initRedShapeOutput(redShapeOutput);
 }
 
 /**
@@ -86,4 +90,21 @@ function initDropContainer(container) {
     draggable.style.top = `${y - offsetY}px`;
     events.dispatchEvent(new Event(eventTypes.shapeDrop));
   });
+}
+
+/**
+ * @param {AppProps['redShapeOutput']} output
+ */
+function initRedShapeOutput(output) {
+  /** @type {import("./pixel.js").PixelColor} */
+  const redPixelData = [255, 0, 0];
+  const countPixels = createPixelCounter();
+  const outputRedPixelCount = async () => {
+    const count = await countPixels(redPixelData);
+    output.textContent = `${count}px`;
+  };
+
+  outputRedPixelCount();
+  events.addEventListener(eventTypes.shapeDrop, outputRedPixelCount);
+  events.addEventListener(eventTypes.shapeRound, outputRedPixelCount);
 }

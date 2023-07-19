@@ -14,8 +14,14 @@ document.addEventListener("DOMContentLoaded", () => {
     throw new Error("main drop area must be an HTMLElement");
   }
 
+  const redShapeOutput = document.querySelector(".red output");
+  if (!(redShapeOutput instanceof HTMLElement)) {
+    throw new Error(".red output must be an HTMLElement");
+  }
+
   init({
     blueShapes,
     dropContainer,
+    redShapeOutput,
   });
 });

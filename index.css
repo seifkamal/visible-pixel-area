@@ -49,3 +49,10 @@ main {
   inset-block: 0;
   margin: auto;
 }
+
+.red output {
+  position: absolute;
+  bottom: -2rem;
+  inset-inline: 0;
+  text-align: center;
+}

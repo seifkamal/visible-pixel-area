@@ -1,5 +1,8 @@
 {
   "scripts": {
     "dev": "python3 -m http.server"
+  },
+  "dependencies": {
+    "html2canvas": "^1.4.1"
   }
 }

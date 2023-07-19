@@ -4,11 +4,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Visible Pixel Area</title>
     <link rel="stylesheet" href="index.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "html2canvas": "./node_modules/html2canvas/dist/html2canvas.esm.js"
+        }
+      }
+    </script>
     <script type="module" src="index.js"></script>
   </head>
   <body>
     <main>
-      <article class="shape red"></article>
+      <article class="shape red">
+        <output></output>
+      </article>
       <article class="shape blue"></article>
       <article class="shape blue"></article>
       <article class="shape blue"></article>
