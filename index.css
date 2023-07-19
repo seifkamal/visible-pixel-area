@@ -8,6 +8,20 @@
     margin: 0;
     height: 100%;
   }
+
+  p {
+    margin: 0;
+    line-height: 1.75;
+  }
+}
+
+aside {
+  position: fixed;
+  left: 2rem;
+  bottom: 2rem;
+  width: min(60ch, 90%);
+  margin: auto;
+  pointer-events: none;
 }
 
 main {
