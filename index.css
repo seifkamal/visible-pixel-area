@@ -29,6 +29,11 @@ main {
   --size: 100px;
 
   position: absolute;
+  cursor: grab;
+}
+
+.shape.blue[data-dragging] {
+  opacity: 0.5;
 }
 
 .shape.red {
