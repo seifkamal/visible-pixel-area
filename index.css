@@ -1,0 +1,42 @@
+@layer reset {
+  :root {
+    height: 100%;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    margin: 0;
+    height: 100%;
+  }
+}
+
+main {
+  height: 100%;
+  position: relative;
+}
+
+.shape {
+  --size: 20px;
+  --color: black;
+
+  width: var(--size);
+  height: var(--size);
+  background-color: var(--color);
+}
+
+.shape.blue {
+  --color: blue;
+  --size: 100px;
+
+  position: absolute;
+}
+
+.shape.red {
+  --color: red;
+  --size: 500px;
+
+  position: absolute;
+  right: 10%;
+  inset-block: 0;
+  margin: auto;
+}
